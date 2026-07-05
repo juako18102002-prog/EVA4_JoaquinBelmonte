@@ -35,6 +35,12 @@ function App() {
     <div className="app-container">
       <h1 className="app-title">CRUD + LocalStorage</h1>
       <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
+      
+      {/* CONTADOR*/}
+      <div className="items-counter">
+        Total de elementos: <strong>{items.length}</strong>
+      </div>
+
       <List items={items} deleteItem={deleteItem} editItem={editItem} />
     </div>
   );

@@ -128,3 +128,13 @@ body {
   background-color: #fecaca; 
   color: #991b1b;
 }
+
+/*  estilo de contador */
+.items-counter {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 12px;
+  text-align: right;
+  padding-right: 4px;
+}
+

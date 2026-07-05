@@ -12,7 +12,11 @@ function Item({ item, deleteItem, editItem }) {
           Editar
         </button>
         <button 
-          onClick={() => deleteItem(item.id)} 
+          onClick={() => {
+            if (window.confirm(`¿Seguro de que deseas eliminar "${item.value}"?`)) {
+              deleteItem(item.id);
+            }
+          }} 
           className="btn-action btn-delete"
         >
           Eliminar

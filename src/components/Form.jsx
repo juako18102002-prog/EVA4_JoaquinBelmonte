@@ -13,10 +13,16 @@ function Form({ addOrUpdateItem, itemToEdit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      addOrUpdateItem({ value: inputValue.trim() });
-      setInputValue("");
+    
+    // Alerta si el input está vacío o solo tiene espacios
+    if (!inputValue.trim()) {
+      alert("Por favor, escribe un elemento válido. No puede estar vacío.");
+      return; 
     }
+
+    // En caso de pasar la validación, agrega o actualiza
+    addOrUpdateItem({ value: inputValue.trim() });
+    setInputValue("");
   };
 
   return (
