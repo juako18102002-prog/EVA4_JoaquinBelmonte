@@ -1,19 +1,30 @@
 import React from "react";
 
-function Item({ item, deleteItem, editItem }) {
+function Item({ item, deleteItem, editItem, toggleComplete }) {
   return (
     <li className="item-row">
-      <span className="item-text">{item.value}</span>
+      <span 
+        onClick={() => toggleComplete(item.id)} 
+        className={`item-text ${item.completado ? "completed-text" : ""}`}
+        style={{ cursor: 'pointer' }}
+        title="Haz clic para marcar como completado"
+      >
+        {item.completado ? "✅ " : "📌 "}
+        {item.value}
+      </span>
+      
       <div className="item-actions">
-        <button 
-          onClick={() => editItem(item)} 
-          className="btn-action btn-edit"
-        >
-          Editar
-        </button>
+        {!item.completado && (
+          <button 
+            onClick={() => editItem(item)} 
+            className="btn-action btn-edit"
+          >
+            Editar
+          </button>
+        )}
         <button 
           onClick={() => {
-            if (window.confirm(`¿Seguro de que deseas eliminar "${item.value}"?`)) {
+            if (window.confirm(`¿Estás seguro de que deseas eliminar "${item.value}"?`)) {
               deleteItem(item.id);
             }
           }} 
